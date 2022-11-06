@@ -2,11 +2,12 @@
 import Link from 'next/link';
 import { Dispatch, FC, SetStateAction } from 'react';
 import { useFetchRepositories } from '@veljomiha/abstract-task/lib';
+import { Tabs } from './Tabs';
 
 interface CardProps {
   page: number;
   setPage: Dispatch<SetStateAction<number>>;
-  activeTab: string;
+  activeTab: Tabs | string;
 }
 
 const Cards: FC<CardProps> = ({ page, setPage, activeTab }) => {
@@ -85,6 +86,7 @@ const Cards: FC<CardProps> = ({ page, setPage, activeTab }) => {
           onClick={() => {
             if (!isPreviousData) {
               setPage(old => old + 1);
+              localStorage.setItem('page', `${page + 1}`);
             }
           }}
           disabled={page === lastPage}>
