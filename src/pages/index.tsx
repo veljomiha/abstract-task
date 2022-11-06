@@ -15,8 +15,18 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setPage(Number(localStorage.getItem('page')));
-      setActiveTab(String(localStorage.getItem('activeTab')));
+      const pageLocalStorage = localStorage.getItem('page');
+      const activeTabLocalStorage = localStorage.getItem('activeTab');
+      if (!pageLocalStorage) {
+        localStorage.setItem('page', `${1}`);
+      } else {
+        setPage(Number(localStorage.getItem('page')));
+      }
+      if (!activeTabLocalStorage) {
+        localStorage.setItem('activeTab', activeTab);
+      } else {
+        setActiveTab(String(localStorage.getItem('activeTab')));
+      }
     }
   }, [page, activeTab]);
 
