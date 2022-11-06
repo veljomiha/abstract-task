@@ -17,6 +17,7 @@ export default function Home() {
     if (typeof window !== 'undefined') {
       const pageLocalStorage = localStorage.getItem('page');
       const activeTabLocalStorage = localStorage.getItem('activeTab');
+
       if (!pageLocalStorage) {
         localStorage.setItem('page', `${1}`);
       } else {
