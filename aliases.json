@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@veljomiha/abstract-task/*": ["src/*"]
+    }
+  }
+}
