@@ -18,14 +18,11 @@ export default function Home() {
       const pageLocalStorage = localStorage.getItem('page');
       const activeTabLocalStorage = localStorage.getItem('activeTab');
 
-      if (!pageLocalStorage) {
+      if (!pageLocalStorage && !activeTabLocalStorage) {
         localStorage.setItem('page', `${1}`);
-      } else {
-        setPage(Number(localStorage.getItem('page')));
-      }
-      if (!activeTabLocalStorage) {
         localStorage.setItem('activeTab', activeTab);
       } else {
+        setPage(Number(localStorage.getItem('page')));
         setActiveTab(String(localStorage.getItem('activeTab')));
       }
     }
