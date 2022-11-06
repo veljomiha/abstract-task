@@ -16,6 +16,10 @@ const RepositoryDetailsPage = () => {
   const { data: dataContributors } = useFetchRepositoryContributors(fullName);
   const { data: dataLanguages } = useFetchRepositoryLanguages(fullName);
 
+  if (data?.message) {
+    return <div className="error">{data?.message}</div>;
+  }
+
   if (isLoading || isFetching) {
     return <div className="loader" />;
   }

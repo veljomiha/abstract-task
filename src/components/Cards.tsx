@@ -17,6 +17,10 @@ const Cards: FC<CardProps> = ({ page, setPage, activeTab }) => {
     useFetchRepositories(tab, page, itemPerPage);
   const lastPage = Math.trunc(data?.total_count / itemPerPage) + 1;
 
+  if (data?.message) {
+    return <div className="error">{data?.message}</div>;
+  }
+
   if (isLoading || isFetching) {
     return <div className="loader" />;
   }
