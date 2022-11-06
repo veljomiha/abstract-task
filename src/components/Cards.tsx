@@ -22,7 +22,7 @@ const Cards: FC<CardProps> = ({ page, setPage, activeTab }) => {
   }
 
   if (isError) {
-    return <div className="error-fetching">Error fetching data</div>;
+    return <div className="error">Error fetching data</div>;
   }
 
   return (

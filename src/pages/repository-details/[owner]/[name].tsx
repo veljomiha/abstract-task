@@ -20,7 +20,7 @@ const RepositoryDetailsPage = () => {
     return <div className="loader" />;
   }
   if (isError) {
-    return <div className="error-fetching">Error fetching data</div>;
+    return <div className="error">Error fetching data</div>;
   }
   return (
     <div className="container container-padding">
@@ -63,13 +63,14 @@ const RepositoryDetailsPage = () => {
             <div>
               <p>Contributor list:</p>
               <ul>
-                {dataContributors
-                  ?.slice(0, 10)
-                  .map((contributor: { id?: string; login?: string }) => (
-                    <li key={contributor?.id}>
-                      <span>{contributor?.login}</span>
-                    </li>
-                  ))}
+                {Array.isArray(dataContributors) &&
+                  dataContributors
+                    .slice(0, 10)
+                    .map((contributor: { id?: string; login?: string }) => (
+                      <li key={contributor?.id}>
+                        <span>{contributor?.login}</span>
+                      </li>
+                    ))}
               </ul>
             </div>
             <div className="line" />
